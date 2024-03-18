@@ -22,8 +22,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      - name: build and test
-        run: |
-          ./build-test.sh
+      # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+       - uses: actions/checkout@v3
+       - name: build and test
+         run: |
+           export ENVIRONMENT=development
+           export DJANGO_SECRET_KEY='django-insecure-dummy-key'
+           export DEBUG=True
+           pip install --no-cache-dir -r requirements.txt
+           python manage.py migrate; if [ "$ENVIRONMENT" = "production" ] ; then gunicorn demo.wsgi:application --bind 0.0.0.0:8000 &; else python manage.py runserver 0.0.0.0:8000 &; fi
+
