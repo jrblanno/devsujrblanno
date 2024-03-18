@@ -1,0 +1,20 @@
+{{- if .Values.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "my-django-chart.fullname" . }}
+  labels:
+    {{- include "my-django-chart.labels" . | nindent 4 }}
+spec:
+  rules:
+    - host: {{ .Values.ingress.hostname }}
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: {{ include "my-django-chart.fullname" . }}
+                port:
+                  number: 80
+{{- end }}

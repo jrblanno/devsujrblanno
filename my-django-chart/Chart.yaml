@@ -1,0 +1,4 @@
+apiVersion: v2
+name: my-django-chart
+description: A Helm chart for my Django application
+version: 0.1.0

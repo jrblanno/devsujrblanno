@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: my-django-app
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+
+ingress:
+  enabled: true
+  hostname: my-django-app.example.com
+
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
