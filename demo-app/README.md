@@ -25,8 +25,8 @@ pip install -r requirements.txt
 Migrate database
 
 ```bash
-py manage.py makemigrations
-py manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
 ```
 
 ### Database
@@ -40,13 +40,13 @@ Consider giving access permissions to the file for proper functioning.
 To run tests you can use this command.
 
 ```bash
-py manage.py test
+python manage.py test
 ```
 
 To run locally the project you can use this command.
 
 ```bash
-py manage.py runserver
+python manage.py runserver
 ```
 
 Open http://localhost:8000/api/ with your browser to see the result.
