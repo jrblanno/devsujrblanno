@@ -33,4 +33,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
+<<<<<<< HEAD
           echo test, and deploy your project.
+=======
+          echo test, and deploy your project.
+>>>>>>> 6e1ab762636717948f8a5a3e91bd38866d2591ba
