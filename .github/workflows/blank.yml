@@ -30,6 +30,7 @@ jobs:
            export ENVIRONMENT=development
            export DJANGO_SECRET_KEY='django-insecure-dummy-key'
            export DEBUG=True
+           export DATABASE_NAME='db.sqlite3'
            pip install --no-cache-dir -r requirements.txt
            python manage.py migrate
            if [ "$ENVIRONMENT" = "production" ] ; then 
