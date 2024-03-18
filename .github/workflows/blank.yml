@@ -36,7 +36,7 @@ jobs:
            if [ "$ENVIRONMENT" = "production" ] ; then 
             gunicorn demo.wsgi:application --bind 0.0.0.0:8000 &
            else 
-           python manage.py runserver 0.0.0.0:8000 &
+            nohup python manage.py runserver 0.0.0.0:8000 &
            fi
            # test the server
             # curl command to generate a random user dni and name in the database; example curl -X POST -H "Content-Type: application/json" -d '{"dni":"your_dni", "name":"your_name"}' http://localhost:8000/api/users/
